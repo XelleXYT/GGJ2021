@@ -4,40 +4,66 @@ using UnityEngine;
 
 public class MovimientoWASD : MonoBehaviour
 {
-    private CharacterController controller;
-    private Vector3 playerVelocity;
-    private bool groundedPlayer;
-    private float playerSpeed = 2.0f;
-    private float jumpHeight = 1.0f;
-    private float gravityValue = -9.81f;
+    public float velocidadAndar = 7.5f;
+    public float velocidadCorrer = 11.5f;
+    public float velocidaSalto = 8.0f;
+    public float gravedad = 20.0f;
+    public Camera camaraJugador;
+    public float velocidadCamara = 2.0f;
+    public float limiteCamaraX = 45.0f;
 
-    private void Start()
+    CharacterController controladorPersonaje;
+    Vector3 direccionMovimiento = Vector3.zero;
+    float rotacionX = 0;
+
+    [HideInInspector]
+    public bool sePuedeMover = true;
+
+    void Start()
     {
-        controller = gameObject.AddComponent<CharacterController>();
+        controladorPersonaje = GetComponent<CharacterController>();
+
+        // Bloqueo de cursor
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     void Update()
     {
-        groundedPlayer = controller.isGrounded;
-        if (groundedPlayer && playerVelocity.y < 0)
+        Vector3 forward = transform.TransformDirection(Vector3.forward);
+        Vector3 right = transform.TransformDirection(Vector3.right);
+
+        // Activar sprint
+        bool estaCorriendo = Input.GetKey(KeyCode.LeftShift);
+        float velocidadXActual = sePuedeMover ? (estaCorriendo ? velocidadCorrer : velocidadAndar) * Input.GetAxis("Vertical") : 0;
+        float velocidadYActual = sePuedeMover ? (estaCorriendo ? velocidadCorrer : velocidadAndar) * Input.GetAxis("Horizontal") : 0;
+        float movimientoDireccionY = direccionMovimiento.y;
+        direccionMovimiento = (forward * velocidadXActual) + (right * velocidadYActual);
+
+        if (Input.GetButton("Jump") && sePuedeMover && controladorPersonaje.isGrounded)
         {
-            playerVelocity.y = 0f;
+            direccionMovimiento.y = velocidaSalto;
+        }
+        else
+        {
+            direccionMovimiento.y = movimientoDireccionY;
         }
 
-        Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-        controller.Move(move * Time.deltaTime * playerSpeed);
-
-        if (move != Vector3.zero)
+        if (!controladorPersonaje.isGrounded)
         {
-            gameObject.transform.forward = move;
+            direccionMovimiento.y -= gravedad * Time.deltaTime;
         }
 
-        if (Input.GetButtonDown("Jump") && groundedPlayer)
-        {
-            playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
-        }
+        // Movimiento del personaje
+        controladorPersonaje.Move(direccionMovimiento * Time.deltaTime);
 
-        playerVelocity.y += gravityValue * Time.deltaTime;
-        controller.Move(playerVelocity * Time.deltaTime);
+        // Rotación del personaje y la cámara
+        if (sePuedeMover)
+        {
+            rotacionX += -Input.GetAxis("Mouse Y") * velocidadCamara;
+            rotacionX = Mathf.Clamp(rotacionX, -limiteCamaraX, limiteCamaraX);
+            camaraJugador.transform.localRotation = Quaternion.Euler(rotacionX, 0, 0);
+            transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * velocidadCamara, 0);
+        }
     }
 }
