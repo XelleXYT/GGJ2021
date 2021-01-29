@@ -9,10 +9,10 @@ FBXHeaderExtension:  {
 		Year: 2021
 		Month: 1
 		Day: 29
-		Hour: 20
-		Minute: 55
-		Second: 40
-		Millisecond: 394
+		Hour: 21
+		Minute: 1
+		Second: 9
+		Millisecond: 669
 	}
 	Creator: "FBX SDK/FBX Plugins version 2020.0.1"
 	OtherFlags:  {
@@ -31,19 +31,19 @@ FBXHeaderExtension:  {
 			Comment: ""
 		}
 		Properties70:  {
-			P: "DocumentUrl", "KString", "Url", "", "C:\Users\pablo\OneDrive\Escritorio\ProyectoJam2021\Prota002.fbx"
-			P: "SrcDocumentUrl", "KString", "Url", "", "C:\Users\pablo\OneDrive\Escritorio\ProyectoJam2021\Prota002.fbx"
+			P: "DocumentUrl", "KString", "Url", "", "C:\Users\pablo\OneDrive\Escritorio\ProyectoJam2021\Personaje003.fbx"
+			P: "SrcDocumentUrl", "KString", "Url", "", "C:\Users\pablo\OneDrive\Escritorio\ProyectoJam2021\Personaje003.fbx"
 			P: "Original", "Compound", "", ""
 			P: "Original|ApplicationVendor", "KString", "", "", "Autodesk"
 			P: "Original|ApplicationName", "KString", "", "", "3ds Max"
 			P: "Original|ApplicationVersion", "KString", "", "", "2021"
-			P: "Original|DateTime_GMT", "DateTime", "", "", "29/01/2021 19:55:40.393"
-			P: "Original|FileName", "KString", "", "", "C:\Users\pablo\OneDrive\Escritorio\ProyectoJam2021\Prota002.fbx"
+			P: "Original|DateTime_GMT", "DateTime", "", "", "29/01/2021 20:01:09.669"
+			P: "Original|FileName", "KString", "", "", "C:\Users\pablo\OneDrive\Escritorio\ProyectoJam2021\Personaje003.fbx"
 			P: "LastSaved", "Compound", "", ""
 			P: "LastSaved|ApplicationVendor", "KString", "", "", "Autodesk"
 			P: "LastSaved|ApplicationName", "KString", "", "", "3ds Max"
 			P: "LastSaved|ApplicationVersion", "KString", "", "", "2021"
-			P: "LastSaved|DateTime_GMT", "DateTime", "", "", "29/01/2021 19:55:40.393"
+			P: "LastSaved|DateTime_GMT", "DateTime", "", "", "29/01/2021 20:01:09.669"
 			P: "Original|ApplicationActiveProject", "KString", "", "", "C:\Users\pablo\OneDrive\Documentos\3ds Max 2021"
 			P: "Original|ApplicationNativeFile", "KString", "", "", "C:\Users\pablo\OneDrive\Escritorio\ProyectoJam2021\Escenario.max"
 		}
@@ -60,7 +60,7 @@ GlobalSettings:  {
 		P: "CoordAxisSign", "int", "Integer", "",1
 		P: "OriginalUpAxis", "int", "Integer", "",2
 		P: "OriginalUpAxisSign", "int", "Integer", "",1
-		P: "UnitScaleFactor", "double", "Number", "",1
+		P: "UnitScaleFactor", "double", "Number", "",100
 		P: "OriginalUnitScaleFactor", "double", "Number", "",1
 		P: "AmbientColor", "ColorRGB", "Color", "",0,0,0
 		P: "DefaultCamera", "KString", "", "", "Producer Perspective"
@@ -80,7 +80,7 @@ GlobalSettings:  {
 
 Documents:  {
 	Count: 1
-	Document: 1605673237552, "", "Scene" {
+	Document: 1604373392848, "", "Scene" {
 		Properties70:  {
 			P: "SourceObject", "object", "", ""
 			P: "ActiveAnimStackName", "KString", "", "", ""
@@ -201,7 +201,7 @@ Definitions:  {
 ;------------------------------------------------------------------
 
 Objects:  {
-	Geometry: 1604563632736, "Geometry::", "Mesh" {
+	Geometry: 1604563625120, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.223529411764706,0.0313725490196078,0.533333333333333
 		}
@@ -297,14 +297,15 @@ Objects:  {
 			}
 		}
 	}
-	Model: 1604363523520, "Model::Prota", "Mesh" {
+	Model: 1604572705888, "Model::Prota", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
 			P: "GeometricTranslation", "Vector3D", "Vector", "",0,0,-85
 			P: "DefaultAttributeIndex", "int", "Integer", "",0
-			P: "Lcl Translation", "Lcl Translation", "", "A",1921.75073242188,-69.1009826660156,85.1781921386719
+			P: "Lcl Translation", "Lcl Translation", "", "A",19.2175073242188,-0.691009826660156,0.851781921386719
+			P: "Lcl Scaling", "Lcl Scaling", "", "A",0.01,0.01,0.01
 			P: "MaxHandle", "int", "Integer", "UH",5
 		}
 		Shading: T
@@ -318,8 +319,8 @@ Objects:  {
 Connections:  {
 	
 	;Model::Prota, Model::RootNode
-	C: "OO",1604363523520,0
+	C: "OO",1604572705888,0
 	
 	;Geometry::, Model::Prota
-	C: "OO",1604563632736,1604363523520
+	C: "OO",1604563625120,1604572705888
 }
