@@ -10,9 +10,9 @@ FBXHeaderExtension:  {
 		Month: 1
 		Day: 29
 		Hour: 23
-		Minute: 36
-		Second: 27
-		Millisecond: 357
+		Minute: 39
+		Second: 14
+		Millisecond: 2
 	}
 	Creator: "FBX SDK/FBX Plugins version 2020.0.1"
 	OtherFlags:  {
@@ -31,19 +31,19 @@ FBXHeaderExtension:  {
 			Comment: ""
 		}
 		Properties70:  {
-			P: "DocumentUrl", "KString", "Url", "", "C:\Users\pablo\OneDrive\Escritorio\ProyectoJam2021\EscenarioLowFinal.fbx"
-			P: "SrcDocumentUrl", "KString", "Url", "", "C:\Users\pablo\OneDrive\Escritorio\ProyectoJam2021\EscenarioLowFinal.fbx"
+			P: "DocumentUrl", "KString", "Url", "", "C:\Users\pablo\OneDrive\Escritorio\ProyectoJam2021\EscenarioFinal002.fbx"
+			P: "SrcDocumentUrl", "KString", "Url", "", "C:\Users\pablo\OneDrive\Escritorio\ProyectoJam2021\EscenarioFinal002.fbx"
 			P: "Original", "Compound", "", ""
 			P: "Original|ApplicationVendor", "KString", "", "", "Autodesk"
 			P: "Original|ApplicationName", "KString", "", "", "3ds Max"
 			P: "Original|ApplicationVersion", "KString", "", "", "2021"
-			P: "Original|DateTime_GMT", "DateTime", "", "", "29/01/2021 22:36:27.343"
-			P: "Original|FileName", "KString", "", "", "C:\Users\pablo\OneDrive\Escritorio\ProyectoJam2021\EscenarioLowFinal.fbx"
+			P: "Original|DateTime_GMT", "DateTime", "", "", "29/01/2021 22:39:14.001"
+			P: "Original|FileName", "KString", "", "", "C:\Users\pablo\OneDrive\Escritorio\ProyectoJam2021\EscenarioFinal002.fbx"
 			P: "LastSaved", "Compound", "", ""
 			P: "LastSaved|ApplicationVendor", "KString", "", "", "Autodesk"
 			P: "LastSaved|ApplicationName", "KString", "", "", "3ds Max"
 			P: "LastSaved|ApplicationVersion", "KString", "", "", "2021"
-			P: "LastSaved|DateTime_GMT", "DateTime", "", "", "29/01/2021 22:36:27.343"
+			P: "LastSaved|DateTime_GMT", "DateTime", "", "", "29/01/2021 22:39:14.001"
 			P: "Original|ApplicationActiveProject", "KString", "", "", "C:\Users\pablo\OneDrive\Documentos\3ds Max 2021"
 			P: "Original|ApplicationNativeFile", "KString", "", "", "C:\Users\pablo\OneDrive\Escritorio\ProyectoJam2021\Escenario_29_01_2021_22_15.max"
 		}
@@ -60,7 +60,7 @@ GlobalSettings:  {
 		P: "CoordAxisSign", "int", "Integer", "",1
 		P: "OriginalUpAxis", "int", "Integer", "",2
 		P: "OriginalUpAxisSign", "int", "Integer", "",1
-		P: "UnitScaleFactor", "double", "Number", "",160934.4
+		P: "UnitScaleFactor", "double", "Number", "",100
 		P: "OriginalUnitScaleFactor", "double", "Number", "",1
 		P: "AmbientColor", "ColorRGB", "Color", "",0,0,0
 		P: "DefaultCamera", "KString", "", "", "Producer Perspective"
@@ -80,7 +80,7 @@ GlobalSettings:  {
 
 Documents:  {
 	Count: 1
-	Document: 1822553475920, "", "Scene" {
+	Document: 1821914682032, "", "Scene" {
 		Properties70:  {
 			P: "SourceObject", "object", "", ""
 			P: "ActiveAnimStackName", "KString", "", "", ""
@@ -201,7 +201,7 @@ Definitions:  {
 ;------------------------------------------------------------------
 
 Objects:  {
-	Geometry: 1822205533168, "Geometry::", "Mesh" {
+	Geometry: 1822205538096, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.0235294117647059,0.529411764705882,0.227450980392157
 		}
@@ -469,14 +469,14 @@ Objects:  {
 			}
 		}
 	}
-	Model: 1822563255920, "Model::Escenario", "Mesh" {
+	Model: 1822554623632, "Model::Escenario", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
 			P: "GeometricTranslation", "Vector3D", "Vector", "",-0.040771484375,0.0721435546875,-150.112762451172
 			P: "DefaultAttributeIndex", "int", "Integer", "",0
-			P: "Lcl Scaling", "Lcl Scaling", "", "A",6.21371192237334e-06,6.21371192237334e-06,6.21371192237334e-06
+			P: "Lcl Scaling", "Lcl Scaling", "", "A",0.01,0.01,0.01
 			P: "MaxHandle", "int", "Integer", "UH",7
 		}
 		Shading: T
@@ -490,8 +490,8 @@ Objects:  {
 Connections:  {
 	
 	;Model::Escenario, Model::RootNode
-	C: "OO",1822563255920,0
+	C: "OO",1822554623632,0
 	
 	;Geometry::, Model::Escenario
-	C: "OO",1822205533168,1822563255920
+	C: "OO",1822205538096,1822554623632
 }
