@@ -4,78 +4,49 @@ using UnityEngine;
 
 public class AtraparObjeto : MonoBehaviour
 {
-    public float speed = 10;
-    public bool canHold = true;
-    public GameObject ball;
-    public Transform guide;
+    private Color mouseOverColor = Color.blue;
+    private Color originalColor = Color.yellow;
+    private bool dragging = false;
+    private float distance;
 
-    void Update()
+
+    void OnMouseEnter()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            if (!canHold)
-                throw_drop();
-            else
-                Pickup();
-        }//mause If
-
-        if (!canHold && ball)
-            ball.transform.position = guide.position;
-
-    }//update
-
-    //We can use trigger or Collision
-    void OnTriggerEnter(Collider col)
-    {
-        if (col.gameObject.tag == "ball")
-            if (!ball) // if we don't have anything holding
-                ball = col.gameObject;
+        GetComponent<Renderer>().material.color = mouseOverColor;
     }
 
-    //We can use trigger or Collision
-    void OnTriggerExit(Collider col)
+    void OnMouseExit()
     {
-        if (col.gameObject.tag == "ball")
+        GetComponent<Renderer>().material.color = originalColor;
+    }
+
+    void OnMouseDown()
+    {
+        dragging = true;
+        if (transform.position.y > 1f) {
+            distance = Vector3.Distance(transform.position, Camera.main.transform.position);
+        } else
         {
-            if (canHold)
-                ball = null;
+            distance = Vector3.Distance(new Vector3(transform.position.x, 0, transform.position.z), Camera.main.transform.position);
         }
     }
 
-
-    private void Pickup()
+    void OnMouseUp()
     {
-        if (!ball)
-            return;
-
-        //We set the object parent to our guide empty object.
-        ball.transform.SetParent(guide);
-
-        //Set gravity to false while holding it
-        ball.GetComponent<Rigidbody>().useGravity = false;
-
-        //we apply the same rotation our main object (Camera) has.
-        ball.transform.localRotation = transform.rotation;
-        //We re-position the ball on our guide object 
-        ball.transform.position = guide.position;
-
-        canHold = false;
+        dragging = false;
     }
 
-    private void throw_drop()
+    void Update()
     {
-        if (!ball)
-            return;
-
-        //Set our Gravity to true again.
-        ball.GetComponent<Rigidbody>().useGravity = true;
-        // we don't have anything to do with our ball field anymore
-        ball = null;
-        //Apply velocity on throwing
-        guide.GetChild(0).gameObject.GetComponent<Rigidbody>().velocity = transform.forward * speed;
-
-        //Unparent our ball
-        guide.GetChild(0).parent = null;
-        canHold = true;
+        if (dragging)
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            Vector3 rayPoint = ray.GetPoint(distance);
+            if (rayPoint.y < 0.5f)
+            {
+                rayPoint.y = transform.position.y;
+            }
+            transform.position = rayPoint;
+        }
     }
 }
