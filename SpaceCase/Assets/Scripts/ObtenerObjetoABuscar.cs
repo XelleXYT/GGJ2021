@@ -39,7 +39,6 @@ public class ObtenerObjetoABuscar : MonoBehaviour
                     return "black";
                 case "Blanco":
                     return "white";
-                case ""
                 default: 
                     return color;
             }
