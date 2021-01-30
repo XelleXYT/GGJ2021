@@ -4,12 +4,7 @@ using UnityEngine;
 
 public class EntregaObjeto : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
+    // Cuando el objeto colisiona
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "CuboPrueba")
@@ -18,10 +13,5 @@ public class EntregaObjeto : MonoBehaviour
             Destroy(gameObject);
         }
         Debug.Log("Colisión");
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
     }
 }

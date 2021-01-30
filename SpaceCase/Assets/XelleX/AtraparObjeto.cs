@@ -75,13 +75,6 @@ public class AtraparObjeto : MonoBehaviour
         isColliding = false;
     }
 
-    /*
-    private void OnCollisionStay(Collision collision)
-    {
-        isColliding = true;
-    }
-    */
-
     void Update()
     {
         if (posicionAnterior == null)
@@ -96,50 +89,10 @@ public class AtraparObjeto : MonoBehaviour
 
         if (dragging)
         {
-            //posicionAnterior = gameObject.transform.position;
-            //transform.position = posicionAnterior;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             Vector3 rayPoint = ray.GetPoint(distance);
-
             rayPoint = ray.GetPoint(distance);
-
             rigidBody.velocity = (rayPoint - gameObject.transform.position) * 10;
-
-
-
-
-
-            /*
-            if (rayPoint.y < 0.5f)
-            {
-                rayPoint.y = transform.position.y;
-            }
-
-            transform.position = Vector3.Lerp(transform.position, rayPoint, 1);
-            Debug.Log(isColliding);
-
-            if ( isColliding )
-            {
-                //Debug.Log("Chocando");
-                transform.position = posicionAnterior;
-                transform.rotation = rotacionAnterior;
-                GetComponent<Rigidbody>().useGravity = false;
-                GetComponent<Rigidbody>().velocity = Vector3.zero;
-                GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
-            }
-            else
-            {
-                posicionAnterior = transform.position;
-                rotacionAnterior = transform.rotation;
-            }
-            */
-
-            // calcular posicion actual es legal o ilegal // posicion anterior y posicion actual
-            // true: guardar posicion anterior = actual
-
-            // calcular posicion actual
-
-            // mover objeto a posicion anterior
         }
         else
         {
@@ -149,25 +102,5 @@ public class AtraparObjeto : MonoBehaviour
             GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
             GetComponent<Rigidbody>().useGravity = true;
         }
-
-        /*
-        if (dragging)
-        {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            Vector3 rayPoint = ray.GetPoint(distance);
-            
-            if (!isColliding)
-            {
-
-                rayPoint = ray.GetPoint(distance);
-                if (rayPoint.y < 0.5f)
-                {
-                    rayPoint.y = transform.position.y;
-                }
-            }
-            
-            transform.position = rayPoint;
-        }
-        */
     }
 }
