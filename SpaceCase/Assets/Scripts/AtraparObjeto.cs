@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class AtraparObjeto : MonoBehaviour
 {
-    private Color mouseOverColor = Color.blue;
-    private Color originalColor = Color.yellow;
+    private Color mouseOverColor = Color.yellow;
+    private Color originalColor = Color.blue;
     private bool dragging = false;
     private float distance;
     public bool isColliding;
+    public float dragDistance = 3.5f;
     Vector3 posicionAnterior;
     Quaternion rotacionAnterior;
 
@@ -18,8 +19,10 @@ public class AtraparObjeto : MonoBehaviour
     {
         //posicionAnterior = gameObject.transform.position;
         rigidBody = gameObject.GetComponent<Rigidbody>();
+        originalColor = GetComponent<Renderer>().material.color;
     }
 
+    /*
     void reDisable()
     {
         GetComponent<Rigidbody>().useGravity = false;
@@ -31,10 +34,14 @@ public class AtraparObjeto : MonoBehaviour
         GetComponent<Rigidbody>().useGravity = true;
         dragging = true;
     }
+    */
 
     void OnMouseEnter()
     {
-        GetComponent<Renderer>().material.color = mouseOverColor;
+        if (Vector3.Distance(transform.position, Camera.main.transform.position) < dragDistance)
+        {
+            GetComponent<Renderer>().material.color = mouseOverColor;
+        }
     }
 
     void OnMouseExit()
@@ -44,14 +51,17 @@ public class AtraparObjeto : MonoBehaviour
 
     void OnMouseDown()
     {
-        dragging = true;
-        if (transform.position.y > 1f)
+        if(Vector3.Distance(transform.position, Camera.main.transform.position) < dragDistance)
         {
-            distance = Vector3.Distance(transform.position, Camera.main.transform.position);
-        }
-        else
-        {
-            distance = Vector3.Distance(new Vector3(transform.position.x, 0, transform.position.z), Camera.main.transform.position);
+            dragging = true;
+            if (transform.position.y > 1f)
+            {
+                distance = Vector3.Distance(transform.position, Camera.main.transform.position);
+            }
+            else
+            {
+                distance = Vector3.Distance(new Vector3(transform.position.x, 0, transform.position.z), Camera.main.transform.position);
+            }
         }
     }
 
@@ -63,12 +73,22 @@ public class AtraparObjeto : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         isColliding = true;
+        /*
         if (dragging)
         {
             reDisable();
             Invoke("reEnable", 0.1f);
         }
-        GetComponent<AudioSource>().Play(0);
+        */
+        try
+        {
+            GetComponent<AudioSource>().Play(0);
+        }
+        catch (System.Exception e)
+        {
+            Debug.LogError(e);
+        }
+        
     }
 
     private void OnCollisionExit(Collision collision)
@@ -90,6 +110,7 @@ public class AtraparObjeto : MonoBehaviour
 
         if (dragging)
         {
+            //Debug.Log(distance);
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             Vector3 rayPoint = ray.GetPoint(distance);
             rayPoint = ray.GetPoint(distance);
