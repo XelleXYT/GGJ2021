@@ -68,6 +68,7 @@ public class AtraparObjeto : MonoBehaviour
             reDisable();
             Invoke("reEnable", 0.1f);
         }
+        GetComponent<AudioSource>().Play(0);
     }
 
     private void OnCollisionExit(Collision collision)
