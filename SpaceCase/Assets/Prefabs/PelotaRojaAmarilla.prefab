@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8869482682191127171}
   - component: {fileID: 2668148283405742515}
   - component: {fileID: 9111853588467975416}
+  - component: {fileID: 4304958319856395526}
   m_Layer: 0
   m_Name: PelotaRojaAmarilla
   m_TagString: Untagged
@@ -223,3 +224,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!54 &4304958319856395526
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7963002281179769226}
+  serializedVersion: 2
+  m_Mass: 0.1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
