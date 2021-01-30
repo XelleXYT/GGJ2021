@@ -12,9 +12,12 @@ public class AtraparObjeto : MonoBehaviour
     Vector3 posicionAnterior;
     Quaternion rotacionAnterior;
 
+    Rigidbody rigidBody;
+
     private void Start()
     {
         //posicionAnterior = gameObject.transform.position;
+        rigidBody = gameObject.GetComponent<Rigidbody>();
     }
 
     void reDisable()
@@ -42,9 +45,11 @@ public class AtraparObjeto : MonoBehaviour
     void OnMouseDown()
     {
         dragging = true;
-        if (transform.position.y > 1f) {
+        if (transform.position.y > 1f)
+        {
             distance = Vector3.Distance(transform.position, Camera.main.transform.position);
-        } else
+        }
+        else
         {
             distance = Vector3.Distance(new Vector3(transform.position.x, 0, transform.position.z), Camera.main.transform.position);
         }
@@ -97,6 +102,14 @@ public class AtraparObjeto : MonoBehaviour
             Vector3 rayPoint = ray.GetPoint(distance);
 
             rayPoint = ray.GetPoint(distance);
+
+            rigidBody.velocity = (rayPoint - gameObject.transform.position) * 10;
+
+
+
+
+
+            /*
             if (rayPoint.y < 0.5f)
             {
                 rayPoint.y = transform.position.y;
@@ -119,7 +132,7 @@ public class AtraparObjeto : MonoBehaviour
                 posicionAnterior = transform.position;
                 rotacionAnterior = transform.rotation;
             }
-
+            */
 
             // calcular posicion actual es legal o ilegal // posicion anterior y posicion actual
             // true: guardar posicion anterior = actual
