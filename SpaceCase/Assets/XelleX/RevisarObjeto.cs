@@ -17,10 +17,14 @@ public class RevisarObjeto : MonoBehaviour
             if (varObjeto.tipo == tipoObjetoElegido && varObjeto.color1 == color1ObjetoElegido && varObjeto.color2 == color2ObjetoElegido)
             {
                 Debug.Log("Bien");
+                //Destruir objeto entregado
+                //Reproducir sonido de entregado correctamente
             }
             else
             {
                 Debug.Log("Mal");
+                //Destruir objeto entregado
+                //Reproducir sonido de objeto incorrecto
             }
             //Debug.Log(collision.gameObject.GetComponent<VariablesObjeto>().color1);
             //Destroy(gameObject);

@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - CuboPrueba
+  - ObjetoEntregable
+  - NPC
   layers:
   - Default
   - TransparentFX
