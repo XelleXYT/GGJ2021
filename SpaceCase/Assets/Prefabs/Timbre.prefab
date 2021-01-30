@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6255889197028949190}
   - component: {fileID: 8157590529753597964}
   - component: {fileID: 6395732835252303128}
+  - component: {fileID: -2094893367104730471}
   m_Layer: 0
   m_Name: Timbre
   m_TagString: Untagged
@@ -96,3 +97,15 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 8758046177975912462, guid: a4dac8e1de566ef46afda2173024f264, type: 3}
+--- !u!114 &-2094893367104730471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7653138785988930009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be097fb758954e945bf43bf61eb81228, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
