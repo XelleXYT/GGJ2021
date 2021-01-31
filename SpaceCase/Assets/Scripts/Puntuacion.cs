@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class Puntuacion : MonoBehaviour
 {
-    public int puntuacion = 0;
+    public int puntos = 0;
 }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class RevisarObjeto : MonoBehaviour
 {
@@ -20,11 +21,16 @@ public class RevisarObjeto : MonoBehaviour
                 // Destruir objeto entregado
                 Destroy(collision.gameObject);
 
-                // Reproducir sonido de entregado correctamente
-                GameObject.Find("AlertaOK").GetComponent<AudioSource>().Play();
-
                 // Suma 1 punto
                 GameObject.Find("Puntuacion").GetComponent<Puntuacion>().puntos++;
+
+                if(GameObject.Find("Puntuacion").GetComponent<Puntuacion>().puntos >= 3)
+                {
+                    SceneManager.LoadScene("EscenaFinal");
+                }
+
+                // Reproducir sonido de entregado correctamente
+                GameObject.Find("AlertaOK").GetComponent<AudioSource>().Play();
 
                 // ExitNPC
                 GameObject.FindGameObjectWithTag("NPC").GetComponent<Animator>().SetTrigger("ExitNPC");

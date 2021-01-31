@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/XelleX/PruebasXelleX2.unity
     guid: 2c068308f95d12c46a858b19ff85d82d
+  - enabled: 1
+    path: Assets/Scenes/EscenaFinal.unity
+    guid: cc0d745d0c97a234b9d05145d82b186a
   m_configObjects: {}

@@ -10,4 +10,8 @@ public class LevelMgr : MonoBehaviour
     {
         SceneManager.LoadScene(pNombreNivel);
     }
+    public void FinNivel()
+    {
+        Application.Quit();
+    }
 }
