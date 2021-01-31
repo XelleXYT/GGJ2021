@@ -23,6 +23,9 @@ public class RevisarObjeto : MonoBehaviour
                 // Reproducir sonido de entregado correctamente
                 GameObject.Find("AlertaOK").GetComponent<AudioSource>().Play();
 
+                // Suma 1 punto
+                GameObject.Find("Puntuacion").GetComponent<Puntuacion>().puntos++;
+
                 // ExitNPC
                 GameObject.FindGameObjectWithTag("NPC").GetComponent<Animator>().SetTrigger("ExitNPC");
             }
