@@ -305,16 +305,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1799930810}
-        m_TargetAssemblyTypeName: LevelMgr, Assembly-CSharp
-        m_MethodName: CargaNivel
-        m_Mode: 5
+      - m_Target: {fileID: 649500658}
+        m_TargetAssemblyTypeName: Control, Assembly-CSharp
+        m_MethodName: Exit
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: PruebaPablo
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &233205226
@@ -365,6 +365,7 @@ GameObject:
   m_Component:
   - component: {fileID: 649500657}
   - component: {fileID: 649500656}
+  - component: {fileID: 649500658}
   - component: {fileID: 649500655}
   m_Layer: 0
   m_Name: Main Camera
@@ -438,6 +439,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &649500658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 649500654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a52b580498d055e43a1e1d406e357a2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &751206154
 GameObject:
   m_ObjectHideFlags: 0
@@ -595,7 +608,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: PruebasPablo
+          m_StringArgument: PruebasXelleX2
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &822315551
@@ -1181,3 +1194,60 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1908782736}
   m_CullTransparentMesh: 0
+--- !u!1001 &6128340775630316049
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6128340775970638918, guid: f7b0d500f44fdc94dba4dc25aa94fdb5, type: 3}
+      propertyPath: m_Name
+      value: Particle System
+      objectReference: {fileID: 0}
+    - target: {fileID: 6128340775970638923, guid: f7b0d500f44fdc94dba4dc25aa94fdb5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 159.23
+      objectReference: {fileID: 0}
+    - target: {fileID: 6128340775970638923, guid: f7b0d500f44fdc94dba4dc25aa94fdb5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 39.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 6128340775970638923, guid: f7b0d500f44fdc94dba4dc25aa94fdb5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -115.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6128340775970638923, guid: f7b0d500f44fdc94dba4dc25aa94fdb5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6128340775970638923, guid: f7b0d500f44fdc94dba4dc25aa94fdb5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6128340775970638923, guid: f7b0d500f44fdc94dba4dc25aa94fdb5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6128340775970638923, guid: f7b0d500f44fdc94dba4dc25aa94fdb5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6128340775970638923, guid: f7b0d500f44fdc94dba4dc25aa94fdb5, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6128340775970638923, guid: f7b0d500f44fdc94dba4dc25aa94fdb5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 6128340775970638923, guid: f7b0d500f44fdc94dba4dc25aa94fdb5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6128340775970638923, guid: f7b0d500f44fdc94dba4dc25aa94fdb5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f7b0d500f44fdc94dba4dc25aa94fdb5, type: 3}
