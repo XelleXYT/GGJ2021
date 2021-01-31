@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class LevelMgr : MonoBehaviour
 {
@@ -14,5 +16,10 @@ public class LevelMgr : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void CargaNivel(string pNombreNivel)
+    {
+        SceneManager.LoadScene(pNombreNivel);
     }
 }
