@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e38ef1d46d2ec244932ba5ae6508de4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tipo: Maleta
+  tipo: Bolsa
   color1: Morado
   color2: Blanco
 --- !u!82 &5578049501534144023
