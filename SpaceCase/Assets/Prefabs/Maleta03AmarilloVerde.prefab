@@ -97,7 +97,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -5128787446635635466, guid: c9e000a2695ed364abfa375115138f89, type: 3}
 --- !u!114 &181822802158724206
@@ -113,6 +113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isColliding: 0
+  dragDistance: 3.5
 --- !u!114 &4023926390563774882
 MonoBehaviour:
   m_ObjectHideFlags: 0

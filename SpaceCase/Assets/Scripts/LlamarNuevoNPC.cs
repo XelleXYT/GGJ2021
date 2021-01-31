@@ -30,11 +30,24 @@ public class LlamarNuevoNPC : MonoBehaviour
 
     private void OnMouseDown()
     {
+        try
+        {
+            GetComponent<AudioSource>().Play();
+        }
+        catch (System.Exception e)
+        {
+            Debug.LogError(e);
+        }
+        
         if (Vector3.Distance(transform.position, Camera.main.transform.position) < actionDistance)
         {
             Debug.Log("Llamar nuevo NPC");
-
-            GameObject NPC = Instantiate(npc, npcSpawn.transform.position, npcSpawn.transform.rotation);
+            if (GameObject.FindGameObjectWithTag("NPC") == null)
+            {
+                Debug.Log("Llamado");
+                GameObject NPC = Instantiate(npc, npcSpawn.transform.position, npcSpawn.transform.rotation);
+            }
+            
 
         }
     }
