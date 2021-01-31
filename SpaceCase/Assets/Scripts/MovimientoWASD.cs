@@ -11,6 +11,7 @@ public class MovimientoWASD : MonoBehaviour
     public Camera camaraJugador;
     public float velocidadCamara = 2.0f;
     public float limiteCamaraX = 45.0f;
+    public bool pasosSonando = false;
 
     CharacterController controladorPersonaje;
     Vector3 direccionMovimiento = Vector3.zero;
@@ -35,9 +36,38 @@ public class MovimientoWASD : MonoBehaviour
 
         // Activar sprint
         bool estaCorriendo = Input.GetKey(KeyCode.LeftShift);
+        bool estaCaminando = (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D));
         float velocidadXActual = sePuedeMover ? (estaCorriendo ? velocidadCorrer : velocidadAndar) * Input.GetAxis("Vertical") : 0;
         float velocidadYActual = sePuedeMover ? (estaCorriendo ? velocidadCorrer : velocidadAndar) * Input.GetAxis("Horizontal") : 0;
         float movimientoDireccionY = direccionMovimiento.y;
+
+        if (estaCaminando)
+        {
+
+            GameObject[] sonidosPasos = GameObject.FindGameObjectsWithTag("SonidoPaso");
+            int sonidoPasosElegido = Random.Range(0, sonidosPasos.Length);
+            GameObject pasoAleatorio = sonidosPasos[sonidoPasosElegido];
+            if (estaCorriendo)
+            {
+                GetComponent<AudioSource>().pitch = 3f;
+                GetComponent<AudioSource>().volume = .15f;
+            } else
+            {
+                GetComponent<AudioSource>().pitch = 1.25f;
+                GetComponent<AudioSource>().volume = .1f;
+            }
+            if (!pasosSonando)
+            {
+                pasosSonando = true;
+                GetComponent<AudioSource>().clip = pasoAleatorio.GetComponent<AudioSource>().clip;
+                GetComponent<AudioSource>().Play();
+            }
+            if (!GetComponent<AudioSource>().isPlaying)
+            {
+                pasosSonando = false;
+            }
+        }
+
         direccionMovimiento = (forward * velocidadXActual) + (right * velocidadYActual);
 
         if (Input.GetButton("Jump") && sePuedeMover && controladorPersonaje.isGrounded)

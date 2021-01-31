@@ -9,6 +9,14 @@ public class ObtenerObjetoABuscar : MonoBehaviour
     public string color1ObjetoElegido;
     public string color2ObjetoElegido;
 
+    private GameObject canvas;
+
+    private void Start()
+    {
+        canvas = GameObject.Find("Canvas");
+        canvas.SetActive(false);
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         Debug.Log("Colision");
@@ -16,8 +24,10 @@ public class ObtenerObjetoABuscar : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        GameObject[] sonidosPapel = GameObject.FindGameObjectsWithTag("SonidoPapel");
         GameObject[] objetosEntregables = GameObject.FindGameObjectsWithTag("ObjetoEntregable");
         int objetoElegido = Random.Range(0, objetosEntregables.Length);
+        int sonidoPapelElegido = Random.Range(0, sonidosPapel.Length);
         tipoObjetoElegido = objetosEntregables[objetoElegido].GetComponent<VariablesObjeto>().tipo;
         color1ObjetoElegido = objetosEntregables[objetoElegido].GetComponent<VariablesObjeto>().color1;
         color2ObjetoElegido = objetosEntregables[objetoElegido].GetComponent<VariablesObjeto>().color2;
@@ -52,11 +62,14 @@ public class ObtenerObjetoABuscar : MonoBehaviour
 
         string color1 = string.Format("<color={1}><b>{0}</b></color>", color1ObjetoElegido, colorParser(color1ObjetoElegido));
         string color2 = string.Format("<color={1}><b>{0}</b></color>", color2ObjetoElegido, colorParser(color2ObjetoElegido));
+        sonidosPapel[sonidoPapelElegido].GetComponent<AudioSource>().Play();
+        canvas.SetActive(true);
         GameObject.Find("Text").GetComponent<Text>().text = "Hola, he perdido una <b>" + tipoObjetoElegido + "</b> de color " + color1 + ", también tiene detalles en " + color2 + ".";
     }
 
     private void OnTriggerExit(Collider other)
     {
         GameObject.Find("Text").GetComponent<Text>().text = "";
+        canvas.SetActive(false);
     }
 }

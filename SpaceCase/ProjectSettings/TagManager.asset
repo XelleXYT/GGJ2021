@@ -8,6 +8,8 @@ TagManager:
   - ObjetoEntregable
   - NPC
   - Entorno
+  - SonidoPapel
+  - SonidoPaso
   layers:
   - Default
   - TransparentFX
